@@ -17,6 +17,8 @@ module.exports = function (data, cb) {
   args = args.concat([
     '--cookie',
     cookiePath,
+    '--cookie-jar',
+    cookiePath,
     url
   ])
   var cmd = 'curl'
