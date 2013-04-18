@@ -17,21 +17,19 @@ module.exports = function (data, cb) {
   args = args.concat([
     '--cookie',
     cookiePath,
-    '--insecure',
     url
   ])
-  inspect(args , 'args')
   var cmd = 'curl'
   var curl = spawn(cmd, args)
   // curl.stderr.setEncoding('utf8')
   curl.stdout.setEncoding('utf8')
-  var html = ''
-  var stdErr = ''
+  var stdout = ''
+  var stderr = ''
   curl.stdout.on('data', function (data) {
-    html += data
+    stdout += data
   })
   curl.stderr.on('data', function (data) {
-    stdErr += data
+    stderr += data
   })
   curl.on('exit', function(code) {
     if (code != 0) {
@@ -39,13 +37,17 @@ module.exports = function (data, cb) {
         message: 'load url failed',
         error: 'bad return code from curl when fetching url',
         url: url,
-        stdErr: stdErr,
-        stdOut: html,
+        stderr: stderr,
+        stdout: stdout,
         code: code,
         stack: new Error().stack
       })
     }
-    cb(null, html)
+    var output = {
+      stdout: stdout,
+      stderr: stderr
+    }
+    cb(null, output)
   })
 
 }

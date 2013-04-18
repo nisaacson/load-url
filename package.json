@@ -1,0 +1,28 @@
+{
+  "name": "load-url",
+  "version": "1.0.0",
+  "description": "Load a given url using curl and a path to a cookie jar file on disk",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": "",
+  "keywords": [
+    "curl"
+  ],
+  "author": "Noah Isaacson",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "84f9cde7a5fc60e755c4dbb3eb0b778395a18b8d",
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "~1.9.0",
+    "eyespect": "~0.1.8"
+  },
+  "dependencies": {
+    "required-keys": "~1.0.5"
+  }
+}
