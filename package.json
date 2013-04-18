@@ -1,6 +1,6 @@
 {
   "name": "load-url",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Load a given url using curl and a path to a cookie jar file on disk",
   "main": "index.js",
   "directories": {
